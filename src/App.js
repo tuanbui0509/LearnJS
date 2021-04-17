@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 // import Header from './component/Header'
 import Product from './component/Product'
 class App extends Component {
+
+  onClick(){
+    console.log('this is an app component')
+  }
   render() {
 
     let product = [
@@ -34,26 +38,37 @@ class App extends Component {
     let elements = product.map((product, idx) => {
       if (product.status) {
         return <Product
-        key={product.id}
-        price={product.price}
-        desc={product.desc}
-        image={product.image}>
-        {product.name}
-      </Product>
-      } 
+          id = {product.id}
+          key={product.id}
+          name={product.name}
+          price={product.price}
+          desc={product.desc}
+          status={product.status}
+          image={product.image}>
+          {product.name}
+        </Product>
+      }
     })
     return (
-      <div>
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <>
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
               {elements}
+            </div>
+
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <button type="button" className="btn btn-primary" onClick={this.onClick}>Click me</button>
 
             </div>
           </div>
         </div>
 
-      </div>
+      </>
+
+
+
+
     );
   }
 }
