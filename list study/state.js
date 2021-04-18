@@ -57,7 +57,8 @@ class App extends Component {
           </tr>
         }
       }
-    });
+
+    })
     return (
       <>
         <div className="container">
